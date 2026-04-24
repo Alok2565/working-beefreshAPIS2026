@@ -1,0 +1,20 @@
+$kind: http-request
+name: Generate Pwd
+url: http://localhost:5000/api/auth/set-password
+method: POST
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: "{\r
+
+    \  \"email\": \"admin.alok@demo.com\",\r
+
+    \  \"password\": \"India#4312\",\r
+
+    \  \"token\":
+    \"54bc090dd30c7591877e936dee418080ad3cedec74073634bb473dea16ec071a\"\r
+
+    }"
+order: null

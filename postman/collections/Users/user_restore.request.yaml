@@ -1,0 +1,5 @@
+$kind: http-request
+name: user_restore
+url: http://localhost:5000/api/users/restore/4
+method: PATCH
+order: 2073643733483519

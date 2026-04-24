@@ -1,0 +1,378 @@
+
+
+/* ================= THEME COLORS ================= */
+:root {
+  --primary: #FBB03B;
+  --primary-hover: #FFCB56;
+}
+
+/* ================= BREADCRUMB ================= */
+.breadcrumb-item.active {
+  padding: 0;
+  border-radius: 6px;
+  color: var(--primary) !important;
+  font-weight: 600;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  display: none;
+}
+
+/* ================= HERO SLIDER ================= */
+.hero-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-slider img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero-slider img {
+    height: 250px;
+  }
+}
+
+/* ================= NAVBAR ================= */
+.navbar-nav .nav-link {
+  font-weight: 500;
+  padding: 10px 18px;
+}
+
+.dropdown-menu {
+  border-radius: 6px;
+}
+
+header img {
+  max-height: 70px;
+}
+
+/* ================= HEADER ================= */
+.top-header {
+  background: #222;
+  color: #fff;
+  padding: 8px 0;
+}
+
+.logo-section {
+  background: #fff;
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.logo-section.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.main-menu {
+  background: #f8f9fa;
+}
+
+.dropdown-toggle::after {
+  color:#ffffff !important;
+}
+
+/* ================= PRODUCT GRID ================= */
+.product-col {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+
+@media (max-width:1200px){
+  .product-col { flex: 0 0 25%; max-width: 25%; }
+}
+
+@media (max-width:992px){
+  .product-col { flex: 0 0 33.33%; max-width: 33.33%; }
+}
+
+@media (max-width:768px){
+  .product-col { flex: 0 0 50%; max-width: 50%; }
+}
+
+@media (max-width:576px){
+  .product-col { flex: 0 0 100%; max-width: 100%; }
+}
+
+/* ================= BUTTONS ================= */
+button.btn.btn-primary,
+button.btn.btn-warning,
+button.btn.btn-light {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #fff !important;
+}
+
+button.btn.btn-primary:hover,
+button.btn.btn-warning:hover,
+button.btn.btn-light:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+}
+
+/* Focus */
+button.btn:focus,
+button.btn:active {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  box-shadow: 0 0 0 0.2rem rgba(251, 176, 59, 0.4) !important;
+}
+
+/* ================= ICON BUTTONS ================= */
+.heart_wishlist,
+.bag_cart {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+
+.heart_wishlist:hover,
+.bag_cart:hover {
+  border-color: var(--primary-hover) !important;
+  color: var(--primary-hover) !important;
+}
+
+/* ================= BADGE ================= */
+span.bg-danger {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.mini-cart-popup {
+  position: absolute;
+  right: 0;
+  top: 45px;
+  width: 320px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+
+.mini-cart-list {
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.mini-cart-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.mini-cart-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+}
+
+.mini-details {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.remove-btn {
+  border: none;
+  background: #ddd;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.mini-subtotal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.mini-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.view-cart-btn {
+  flex: 1;
+  background: #5a2d0c;
+  color: #fff;
+  padding: 8px;
+  text-align: center;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.checkout-btn {
+  flex: 1;
+  background: #FBB03B;
+  color: #000;
+  padding: 8px;
+  text-align: center;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.mini-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mini-bottom {
+  margin-top: 2px;
+  font-size: 12px;
+  color: #555;
+}
+
+.remove-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #999;
+}
+
+/* .remove-btn:hover {
+  color: red;
+} */
+
+span.text-danger.inline-flex.custom.cursor-pointer {
+    cursor: pointer;
+}
+.zoom-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.zoom-container {
+  position: relative;
+  flex-shrink: 0;
+}
+.zoom-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  z-index: 11;
+}
+
+.zoom-preview {
+  width: 300px;
+  height: 400px;
+  border: 2px solid #ddd;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  display: none;
+  flex-shrink: 0;
+}
+
+.zoom-lens {
+  width: 100px;
+  height: 100px;
+} 
+.zoom-preview.active {
+  display: block;
+}
+
+/* src/index.css or App.css */
+
+.blog-slider-container {
+  padding: 40px 0;
+}
+
+.blog-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+}
+
+.blog-card img {
+  transition: transform 0.4s ease;
+}
+
+.blog-card:hover img {
+  transform: scale(1.05);
+}
+
+.single_post img {
+  border-radius: 10px;
+}
+
+.blog-content-html h3 {
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.blog-content-html p {
+  line-height: 1.8;
+  color: #555;
+}
+
+.blog-content-html ul {
+  padding-left: 20px;
+}
+
+.blog-content-html li {
+  margin-bottom: 8px;
+}
+
+/* Sidebar hover effect */
+.recent-card {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.recent-card:hover {
+  transform: translateY(-4px);
+}
+.blog-meta {
+  font-size: 14px;
+  color: #777;
+}
+
+.blog-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+}
+
+.blog-card img {
+  transition: transform 0.4s ease;
+}
+
+.blog-card:hover img {
+  transform: scale(1.05);
+}
+.footer-divider {
+  border-top: 2px solid rgb(255, 255, 255);
+  width: 100%;
+}

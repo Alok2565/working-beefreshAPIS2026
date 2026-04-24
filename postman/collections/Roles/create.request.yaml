@@ -1,0 +1,8 @@
+$kind: http-request
+name: create
+url: http://localhost:5000/api/roles/create
+method: POST
+body:
+  type: json
+  content: "{\r\n    \"name\":\"manager\"\r\n}"
+order: 3789357849772031

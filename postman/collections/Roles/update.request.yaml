@@ -1,0 +1,8 @@
+$kind: http-request
+name: update
+url: http://localhost:5000/api/roles/update/3
+method: PUT
+body:
+  type: json
+  content: "{\r\n    \"name\":\"customer\"\r\n}"
+order: 368325581340671

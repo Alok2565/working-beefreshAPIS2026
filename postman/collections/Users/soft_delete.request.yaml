@@ -1,0 +1,5 @@
+$kind: http-request
+name: soft_delete
+url: http://127.0.0.1:5000/api/users/soft-delete/4
+method: PATCH
+order: 2419440906928127

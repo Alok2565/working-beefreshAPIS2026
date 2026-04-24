@@ -1,0 +1,12 @@
+$kind: http-request
+name: hard delete
+url: http://localhost:5000/api/roles/delete/4
+method: DELETE
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\":\"manager\"\r
+
+    }\r\n"
+order: 852216200036351

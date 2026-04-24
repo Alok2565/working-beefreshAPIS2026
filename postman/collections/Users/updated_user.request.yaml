@@ -1,0 +1,12 @@
+$kind: http-request
+name: updated_user
+url: http://localhost:5000/api/users/update/3
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\":\"user.raman@yopmail.com\"\r
+
+    \    }"
+order: 731094409281535

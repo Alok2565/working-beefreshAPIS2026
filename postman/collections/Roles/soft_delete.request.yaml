@@ -1,0 +1,5 @@
+$kind: http-request
+name: soft_delete
+url: http://localhost:5000/api/roles/soft-delete/3
+method: PATCH
+order: 803097123225599

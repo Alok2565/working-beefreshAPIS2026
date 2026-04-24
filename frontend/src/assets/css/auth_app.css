@@ -1,0 +1,42 @@
+.login-container {
+  background: #f8f9fa;
+}
+
+/* LEFT CONTENT */
+.login-left-content {
+  width: 80%;
+  max-width: 400px;
+}
+
+.login-logo {
+  width: 150px;
+}
+
+/* RIGHT SIDE GRADIENT */
+.gradient-side {
+  background: linear-gradient(135deg, #FBB03B, #ff7e5f);
+}
+
+/* BUTTON */
+.login-btn {
+  background: linear-gradient(135deg, #FBB03B, #ff7e5f);
+  border: none;
+  color: #fff;
+}
+
+.login-btn:hover {
+  opacity: 0.9;
+}
+
+/* PASSWORD ICON */
+.password-toggle {
+  position: absolute;
+  top: 38px;
+  right: 12px;
+  cursor: pointer;
+  color: #555;
+}
+.custom_auth{
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   border-radius: 2px;
+}
