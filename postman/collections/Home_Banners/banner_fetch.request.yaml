@@ -1,0 +1,5 @@
+$kind: http-request
+name: banner_fetch
+url: ""
+method: GET
+order: null

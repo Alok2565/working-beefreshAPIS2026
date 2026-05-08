@@ -1,0 +1,12 @@
+$kind: http-request
+name: banners_status
+url: http://127.0.0.1:5000/api/home_banners/status/1
+method: PUT
+body:
+  type: json
+  content: "{\r\n    \"status\":false\r\n}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
+order: 2921906820874239

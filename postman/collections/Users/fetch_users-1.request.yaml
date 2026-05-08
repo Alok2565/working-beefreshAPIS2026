@@ -2,4 +2,8 @@ $kind: http-request
 name: fetch_users
 url: http://localhost:5000/api/users
 method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
 order: 3236478616338431

@@ -1,0 +1,487 @@
+-- =========================================================
+-- RECOMMENDED UI RELATED TABLES
+-- BEE HONEY ADMIN SYSTEM
+-- PostgreSQL
+-- =========================================================
+
+-- =========================================================
+-- 1. MENUS TABLE
+-- Dynamic Navbar / Sidebar Menu Management
+-- =========================================================
+
+CREATE TABLE menus (
+    id SERIAL PRIMARY KEY,
+
+    menu_name VARCHAR(255) NOT NULL,
+
+    menu_url VARCHAR(255),
+
+    parent_id INTEGER REFERENCES menus(id),
+
+    menu_order INTEGER DEFAULT 0,
+
+    icon VARCHAR(100),
+
+    status BOOLEAN DEFAULT TRUE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =========================================================
+-- 2. CMS PAGES TABLE
+-- About Us, Privacy Policy, Terms etc.
+-- =========================================================
+
+CREATE TABLE infoormation_pages (
+    id SERIAL PRIMARY KEY,
+
+    page_title VARCHAR(255) NOT NULL,
+
+    slug VARCHAR(255) UNIQUE NOT NULL,
+
+    page_content TEXT,
+
+    meta_title VARCHAR(255),
+
+    meta_description TEXT,
+
+    meta_keywords TEXT,
+
+    status BOOLEAN DEFAULT TRUE,
+
+    is_deleted BOOLEAN DEFAULT FALSE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    deleted_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    deleted_at TIMESTAMP
+);
+
+-- =========================================================
+-- 3. FOOTER LINKS TABLE
+-- Dynamic Footer Links
+-- =========================================================
+
+CREATE TABLE footer_links (
+    id SERIAL PRIMARY KEY,
+
+    title VARCHAR(255) NOT NULL,
+
+    url VARCHAR(255),
+
+    link_order INTEGER DEFAULT 0,
+
+    status BOOLEAN DEFAULT TRUE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =========================================================
+-- 4. TESTIMONIALS TABLE
+-- Customer Testimonials
+-- =========================================================
+
+CREATE TABLE testimonials (
+    id SERIAL PRIMARY KEY,
+
+    customer_name VARCHAR(255),
+
+    designation VARCHAR(255),
+
+    image TEXT,
+
+    review TEXT,
+
+    rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+
+    status BOOLEAN DEFAULT TRUE,
+
+    is_deleted BOOLEAN DEFAULT FALSE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    deleted_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    deleted_at TIMESTAMP
+);
+
+-- =========================================================
+-- 5. FAQ TABLE
+-- Frequently Asked Questions
+-- =========================================================
+
+CREATE TABLE faqs (
+    id SERIAL PRIMARY KEY,
+
+    question TEXT NOT NULL,
+
+    answer TEXT NOT NULL,
+
+    faq_order INTEGER DEFAULT 0,
+
+    status BOOLEAN DEFAULT TRUE,
+
+    is_deleted BOOLEAN DEFAULT FALSE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    deleted_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    deleted_at TIMESTAMP
+);
+
+-- =========================================================
+-- 6. CONTACT SETTINGS TABLE
+-- Company Contact Details
+-- =========================================================
+
+CREATE TABLE contact_settings (
+    id SERIAL PRIMARY KEY,
+
+    company_name VARCHAR(255),
+
+    email VARCHAR(255),
+
+    mobile VARCHAR(20),
+
+    whatsapp VARCHAR(20),
+
+    address TEXT,
+
+    facebook_url TEXT,
+
+    instagram_url TEXT,
+
+    twitter_url TEXT,
+
+    youtube_url TEXT,
+
+    linkedin_url TEXT,
+
+    map_iframe TEXT,
+
+    status BOOLEAN DEFAULT TRUE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =========================================================
+-- 7. HOMEPAGE SECTIONS TABLE
+-- Dynamic Homepage Section Control
+-- =========================================================
+
+CREATE TABLE homepage_sections (
+    id SERIAL PRIMARY KEY,
+
+    section_name VARCHAR(255),
+
+    section_title VARCHAR(255),
+
+    section_subtitle TEXT,
+
+    section_order INTEGER DEFAULT 0,
+
+    status BOOLEAN DEFAULT TRUE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =========================================================
+-- 8. NEWSLETTER SUBSCRIBERS TABLE
+-- Email Subscribers
+-- =========================================================
+
+CREATE TABLE newsletter_subscribers (
+    id SERIAL PRIMARY KEY,
+
+    email VARCHAR(255) UNIQUE NOT NULL,
+
+    subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =========================================================
+-- 9. SOCIAL MEDIA LINKS TABLE
+-- Social Media Management
+-- =========================================================
+
+CREATE TABLE social_media_links (
+    id SERIAL PRIMARY KEY,
+
+    platform_name VARCHAR(100),
+
+    platform_url TEXT,
+
+    icon VARCHAR(100),
+
+    status BOOLEAN DEFAULT TRUE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =========================================================
+-- 10. SEO SETTINGS TABLE
+-- Global SEO Settings
+-- =========================================================
+
+CREATE TABLE seo_settings (
+    id SERIAL PRIMARY KEY,
+
+    site_title VARCHAR(255),
+
+    meta_title VARCHAR(255),
+
+    meta_description TEXT,
+
+    meta_keywords TEXT,
+
+    og_image TEXT,
+
+    favicon TEXT,
+
+    google_analytics_code TEXT,
+
+    facebook_pixel_code TEXT,
+
+    status BOOLEAN DEFAULT TRUE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =========================================================
+-- BLOG / POST RELATED TABLES
+-- BEE HONEY ADMIN SYSTEM
+-- PostgreSQL
+-- =========================================================
+
+-- =========================================================
+-- 1. BLOG CATEGORIES TABLE
+-- =========================================================
+
+CREATE TABLE blog_categories (
+    id SERIAL PRIMARY KEY,
+
+    category_name VARCHAR(255) NOT NULL,
+
+    slug VARCHAR(255) UNIQUE NOT NULL,
+
+    description TEXT,
+
+    image TEXT,
+
+    status BOOLEAN DEFAULT TRUE,
+
+    is_deleted BOOLEAN DEFAULT FALSE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    deleted_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    deleted_at TIMESTAMP
+);
+
+-- =========================================================
+-- 2. BLOG TAGS TABLE
+-- =========================================================
+
+CREATE TABLE blog_tags (
+    id SERIAL PRIMARY KEY,
+
+    tag_name VARCHAR(255) NOT NULL,
+
+    slug VARCHAR(255) UNIQUE NOT NULL,
+
+    status BOOLEAN DEFAULT TRUE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =========================================================
+-- 3. BLOG POSTS TABLE
+-- =========================================================
+
+CREATE TABLE blog_posts (
+    id SERIAL PRIMARY KEY,
+
+    category_id INTEGER REFERENCES blog_categories(id),
+
+    title VARCHAR(255) NOT NULL,
+
+    slug VARCHAR(255) UNIQUE NOT NULL,
+
+    short_description TEXT,
+
+    content TEXT,
+
+    featured_image TEXT,
+
+    author_name VARCHAR(255),
+
+    publish_date TIMESTAMP,
+
+    is_featured BOOLEAN DEFAULT FALSE,
+
+    total_views INTEGER DEFAULT 0,
+
+    seo_title VARCHAR(255),
+
+    seo_keywords TEXT,
+
+    seo_description TEXT,
+
+    og_image TEXT,
+
+    canonical_url TEXT,
+
+    status BOOLEAN DEFAULT TRUE,
+
+    is_deleted BOOLEAN DEFAULT FALSE,
+
+    created_by INTEGER REFERENCES users(id),
+
+    updated_by INTEGER REFERENCES users(id),
+
+    deleted_by INTEGER REFERENCES users(id),
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    deleted_at TIMESTAMP
+);
+
+-- =========================================================
+-- 4. BLOG POST TAG MAPPING TABLE
+-- =========================================================
+
+CREATE TABLE blog_post_tag_mapping (
+    id SERIAL PRIMARY KEY,
+
+    blog_post_id INTEGER REFERENCES blog_posts(id) ON DELETE CASCADE,
+
+    tag_id INTEGER REFERENCES blog_tags(id) ON DELETE CASCADE
+);
+
+-- =========================================================
+-- 5. BLOG COMMENTS TABLE
+-- =========================================================
+
+CREATE TABLE blog_comments (
+    id SERIAL PRIMARY KEY,
+
+    blog_post_id INTEGER REFERENCES blog_posts(id) ON DELETE CASCADE,
+
+    customer_name VARCHAR(255),
+
+    customer_email VARCHAR(255),
+
+    comment TEXT NOT NULL,
+
+    status BOOLEAN DEFAULT TRUE,
+
+    is_deleted BOOLEAN DEFAULT FALSE,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    deleted_at TIMESTAMP
+);
+
+-- =========================================================
+-- 6. BLOG GALLERY TABLE
+-- Multiple Images for Blog Posts
+-- =========================================================
+
+CREATE TABLE blog_gallery (
+    id SERIAL PRIMARY KEY,
+
+    blog_post_id INTEGER REFERENCES blog_posts(id) ON DELETE CASCADE,
+
+    image_path TEXT NOT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =========================================================
+-- 7. BLOG SEO SETTINGS TABLE
+-- Optional Global Blog SEO
+-- =========================================================
+
+CREATE TABLE blog_seo_settings (
+    id SERIAL PRIMARY KEY,
+
+    blog_meta_title VARCHAR(255),
+
+    blog_meta_description TEXT,
+
+    blog_meta_keywords TEXT,
+
+    og_image TEXT,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

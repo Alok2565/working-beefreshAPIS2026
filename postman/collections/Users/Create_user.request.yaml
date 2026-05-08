@@ -6,19 +6,17 @@ body:
   type: json
   content: "{\r
 
-    \  \"name\": \"Aman Rawat\",\r
+    \  \"name\": \"Alok Kumar\",\r
 
-    \  \"email\": \"aman.rawat@yopmail.com\",\r
+    \  \"email\": \"users.alok@yopmail.com\",\r
 
-    \  \"mobile\": \"8532154121\",\r
+    \  \"role_id\": 2,\r
+
+    \  \"mobile\": \"9526521451\",\r
 
     \  \"status\": true,\r
 
-    \  \"ip_address\": \"127.0.0.1\",\r
+    \  \"ip_address\": \"127.0.0.1\"\r
 
-    \  \"role_id\":2 ,\r
-
-    \  \"permissions\": 2\r
-
-    }\r\n"
+    }"
 order: 2372803618668543

@@ -1,0 +1,9 @@
+$kind: http-request
+name: Permissions festch
+url: http://127.0.0.1:5000/api/permissions
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
+order: 4357688302501887
