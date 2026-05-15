@@ -1,0 +1,5 @@
+$kind: http-request
+name: getBYID
+url: http://127.0.0.1:5000/api/category/1
+method: GET
+order: 1264440477483007

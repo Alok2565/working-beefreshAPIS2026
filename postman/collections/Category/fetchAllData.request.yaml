@@ -1,0 +1,10 @@
+$kind: http-request
+name: fetchAllData
+url: http://127.0.0.1:5000/api/category/list
+method: GET
+auth:
+  credentials:
+    - key: token
+      value: "{{token}}"
+  type: bearer
+order: null

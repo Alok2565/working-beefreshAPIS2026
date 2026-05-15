@@ -1,0 +1,10 @@
+$kind: http-request
+name: Fetch Units
+url: http://127.0.0.1:5000/api/weight_units
+method: GET
+auth:
+  credentials:
+    - key: token
+      value: "{{token}}"
+  type: bearer
+order: 1778674003932

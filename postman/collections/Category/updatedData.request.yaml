@@ -1,0 +1,14 @@
+$kind: http-request
+name: updatedData
+url: http://127.0.0.1:5000/api/category/update/1
+method: PUT
+headers:
+  Content-Type: multipart/form-data
+body:
+  type: json
+  content: ""
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
+order: 3077718969155583
