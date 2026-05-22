@@ -1,0 +1,170 @@
+/* =========================
+   SIDEBAR BASE (SCROLL FIX)
+========================= */
+.custom-sidebar-nav {
+  background-color: #0d1b2a;
+  color: #fff;
+  height: 100vh; /* full screen */
+  overflow-y: auto; /* enable scroll */
+  overflow-x: visible; /* allow tooltip */
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Expanded */
+.custom-sidebar-nav.open {
+  width: 300px;
+}
+
+/* Collapsed */
+.custom-sidebar-nav.collapsed {
+  width: 50px;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+.custom-sidebar-nav .nav-link {
+  color: #fff;
+  padding: 10px;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.custom-sidebar-nav .nav-link:hover {
+  background-color: #ffffff;
+  color: #000 !important;
+}
+
+/* Active */
+.custom-sidebar-nav .nav-link.active {
+  background-color: #1b263b;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+/* =========================
+   TEXT VISIBILITY
+========================= */
+.custom-sidebar-nav.collapsed .sidebar-text {
+  display: none;
+}
+
+/* =========================
+   TOOLTIP (WORKING)
+========================= */
+.custom-sidebar-nav.collapsed .nav-link {
+  position: relative;
+  z-index: 1;
+}
+
+.custom-sidebar-nav.collapsed .nav-link::after {
+  content: attr(data-title);
+  position: absolute;
+  left: 75px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+
+  z-index: 9999;
+}
+
+.custom-sidebar-nav.collapsed .nav-link:hover {
+  z-index: 9999;
+}
+
+.custom-sidebar-nav.collapsed .nav-link:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(5px);
+}
+
+/* =========================
+   SUBMENU
+========================= */
+.submenu-wrapper {
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+/* =========================
+   ARROW
+========================= */
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   SCROLLBAR (OPTIONAL)
+========================= */
+.custom-sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-sidebar-nav::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.custom-sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* Allow overflow outside sidebar */
+.custom-sidebar-nav {
+  overflow-x: visible;
+  position: relative;
+}
+
+/* Each nav item */
+.custom-sidebar-nav .nav-item {
+  position: relative;
+  font-size: 17px;
+}
+
+/* Hide text normally in collapsed */
+.custom-sidebar-nav.collapsed .sidebar-text {
+  display: none;
+  position: absolute;
+  left: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+
+  opacity: 0;
+  transition: all 0.2s ease;
+
+  z-index: 9999;
+}
+
+/* SHOW TEXT ON HOVER */
+.custom-sidebar-nav.collapsed .nav-item:hover .sidebar-text {
+  display: block;
+  opacity: 1;
+}
+
+/* Bring hovered item above */
+.custom-sidebar-nav.collapsed .nav-item:hover {
+  z-index: 9999;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  color: #ffffff !important;
+}

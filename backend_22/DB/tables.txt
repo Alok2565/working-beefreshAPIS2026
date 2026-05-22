@@ -1,0 +1,45 @@
+SELECT * FROM users
+ORDER BY id ASC; 
+
+SELECT * FROM user_logins
+ORDER BY id ASC ;
+
+
+DROP TABLE IF EXISTS users CASCADE;
+ALTER TABLE users RENAME TO users_old1;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100) UNIQUE,
+  mobile VARCHAR(15) UNIQUE,
+  role_id INT NOT NULL,
+  status BOOLEAN DEFAULT true,
+  ip_address VARCHAR(45),
+  is_deleted BOOLEAN DEFAULT false,
+  deleted_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE user_logins RENAME TO user_logins_old;
+
+DROP TABLE IF EXISTS user_logins CASCADE;
+
+CREATE TABLE user_logins (
+  id SERIAL PRIMARY KEY,
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
+  email VARCHAR(100) UNIQUE,
+  password TEXT,
+  pwd_generated_at TIMESTAMP,
+  mobile VARCHAR(15) UNIQUE,
+  token VARCHAR(128),
+  status BOOLEAN DEFAULT false,
+  last_login TIMESTAMP,
+  is_deleted BOOLEAN DEFAULT false,
+  deleted_at TIMESTAMP,
+  token_expiry TIMESTAMP,
+  ip_address VARCHAR(45),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

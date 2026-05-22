@@ -1,0 +1,5 @@
+$kind: http-request
+name: fetch Data
+url: http://127.0.0.1:5000/api/products/list
+method: GET
+order: 191981349166751

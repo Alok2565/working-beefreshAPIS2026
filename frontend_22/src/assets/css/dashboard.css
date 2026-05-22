@@ -1,0 +1,118 @@
+/* =====================================
+   THEME (LIGHT / DARK)
+===================================== */
+body[data-theme="light"] {
+  background-color: #f8f9fa;
+  color: #000;
+}
+
+body[data-theme="dark"] {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* CSS Variables */
+:root {
+  --bg: #fff;
+  --text: #000;
+}
+
+body[data-theme="dark"] {
+  --bg: #121212;
+  --text: #fff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* =====================================
+   DASHBOARD CONTENT
+===================================== */
+body[data-theme="light"] .dashboard-content {
+  background-color: #f8f9fa;
+  color: #000;
+}
+
+body[data-theme="dark"] .dashboard-content {
+  background-color: #121212;
+  color: #fff;
+}
+
+/* =====================================
+   COMPONENT FIXES (DARK MODE)
+===================================== */
+body[data-theme="dark"] .card {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+body[data-theme="dark"] .table {
+  color: #fff;
+}
+
+body[data-theme="dark"] .navbar {
+  background-color: #000 !important;
+}
+
+body[data-theme="dark"] .text-muted {
+  color: #aaa !important;
+}
+
+/* =====================================
+   TABLE
+===================================== */
+body[data-theme="dark"] table {
+  color: #fff;
+}
+
+.admin-footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 220px;
+  z-index: 1000;
+}
+
+.dropdown-menu-custom {
+  display: none;
+}
+
+.dropdown-menu-custom.show {
+  display: block;
+}
+
+.hover-bg {
+  transition: all 0.2s ease;
+}
+
+.hover-bg:hover {
+  background-color: #e9e9e8 !important;
+  color: #000 !important;
+}
+
+.ck-editor__editable {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.ck.ck-editor {
+  width: 100%;
+}
+
+.ck-toolbar {
+  border-radius: 10px 10px 0 0 !important;
+}
+
+.ck-editor__editable {
+  border-radius: 0 0 10px 10px !important;
+}
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+  border: var(--ck-focus-ring);
+  box-shadow:
+    var(--ck-inner-shadow),
+    0 0;
+  outline: none;
+}

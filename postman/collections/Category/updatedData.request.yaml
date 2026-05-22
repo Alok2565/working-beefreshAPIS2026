@@ -2,11 +2,17 @@ $kind: http-request
 name: updatedData
 url: http://127.0.0.1:5000/api/category/update/1
 method: PUT
-headers:
-  Content-Type: multipart/form-data
 body:
   type: json
-  content: ""
+  content: "{\r
+
+    \      \"category_name\": \"Test Category\",\r
+
+    \            \"category_slug\": \"test-cat\",\r
+
+    \            \"description\": \"zafdcaszgvdxzvfx\"\r
+
+    }"
 auth:
   type: bearer
   credentials:

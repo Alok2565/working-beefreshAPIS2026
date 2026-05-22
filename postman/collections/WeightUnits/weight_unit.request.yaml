@@ -1,0 +1,12 @@
+$kind: http-request
+name: weight_unit
+url: http://127.0.0.1:5000/api/w/create
+method: POST
+body:
+  type: json
+  content: ""
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
+order: 3436459801251791
